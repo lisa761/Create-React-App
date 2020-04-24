@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
+      { id: 'sdfsd', name: 'Max', age: 28 },
+      { id: 'cvdxf', name: 'Manu', age: 29 },
+      { id: 'asfse', name: 'Stephanie', age: 26 }
     ],
     otherState: 'some other value',
     showPersons: false
@@ -34,10 +34,6 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    // const persons = this.state.persons.slice();
-    // this will generate a copy instead of using the original persons to slice as
-    // that is not a good practice
-    // OR the spread operator could be used for the same this as slice does in an ES6 way
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
@@ -46,7 +42,6 @@ class App extends Component {
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
     this.setState({showPersons: !doesShow});
-    // remember .setState merges the states whereas the useState syntax replaces it
   }
 
   render() {
@@ -65,9 +60,13 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return <Person
-            click = {() => this.deletePersonHandler(index)}
+              click = {() => this.deletePersonHandler(index)}
               name={person.name}
-              age={person.age} />
+              age={person.age}
+              key = {person.id} />
+              // key added, because react keeps a virtual DOM to compare the changes it makes.
+              // Therefore, it uses this to compare elements. This will help remove the 
+              // previous key error. This key has to be something unique.
           })}
         </div>
       );
