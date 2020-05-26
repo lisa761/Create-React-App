@@ -32,7 +32,7 @@ class App extends Component {
       ...this.state.persons[personIndex]
     }
     // OR
-    // const person = Onject.assign({}, this.state.persons[personIndex]) (old)
+    // const person = Object.assign({}, this.state.persons[personIndex]) (old)
     person.name = event.target.value;   
 
     const persons = [...this.state.persons];
@@ -54,7 +54,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -76,12 +77,25 @@ class App extends Component {
           })}
         </div>
       );
+
+      style.backgroundColor = 'red';
+    }
+
+    // const classes = ['red', 'bold'].join(' ');
+    // We use join in the classes here, in order to convert the array into string.
+    // The className needs to be a string and not an array obviously. Therefore the join.
+    const classes = [];
+    if(this.state.persons.length <= 2) {
+      classes.push('red'); // classes = ['red]
+    }
+    if(this.state.persons.length <= 1) {
+      classes.push('bold'); // classes = ['red', 'bold']
     }
 
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <p className={classes.join(' ')}>This is really working!</p>
         <button 
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
