@@ -1,6 +1,6 @@
 /* The CSS written here is global unlike what you'd think */
 
-.Person {
+/* .Person {
     width: 60%;
     margin: 16px auto;
     border: 1px solid #eee;
@@ -8,3 +8,9 @@
     padding: 16px;
     text-align: center;
 }
+
+@media (min-width: 500px) {
+    .Person {
+        width: 450px;
+    }
+} */
