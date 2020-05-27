@@ -1,6 +1,6 @@
-/* The CSS written here is global unlike what you'd think */
+/* The CSS written here is global unlike what you'd think otherwise */
 
-/* .Person {
+.Person {
     width: 60%;
     margin: 16px auto;
     border: 1px solid #eee;
@@ -13,4 +13,4 @@
     .Person {
         width: 450px;
     }
-} */
+}

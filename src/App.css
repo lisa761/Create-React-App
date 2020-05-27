@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-.button {
+.Button {
   background-color: green;
   color: white;
   font: inherit;
@@ -19,9 +19,16 @@
   cursor: pointer;
 }
 
-
-
-.button:hover {
+.Button:hover {
   background-color: lightgreen;
   color: black;
 }
+
+.Button.Red {
+  background-color: red;
+}
+
+.Button.Red:hover {
+  background-color: salmon;
+}
+/* We can also just use .App button instead of .Button so that the style applies to all button tags inside App element */
