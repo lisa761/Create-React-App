@@ -30,12 +30,12 @@ class App extends Component {
     // render method runs after this
   }
 
-  componentWillMount() {
-    // This throws an error as it's been removed
-    // This was used to set state correctly, but it can also be don in
-    // getDerivedStateFromProps or from the constructor
-    console.log('[App.js] componentWillMount');
-  }
+  // componentWillMount() {
+  //   // This throws an error as it's been removed
+  //   // This was used to set state correctly, but it can also be don in
+  //   // getDerivedStateFromProps or from the constructor
+  //   console.log('[App.js] componentWillMount');
+  // }
 
   componentDidMount() {
     console.log('[App.js] componentDidMount');
