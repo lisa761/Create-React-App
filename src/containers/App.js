@@ -38,7 +38,19 @@ class App extends Component {
   // }
 
   componentDidMount() {
+    // Used for fetching new data from servers
     console.log('[App.js] componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // Is used for performance improvements
+    console.log('[App.js] shouldComponentUpdate');
+    return true;
+  }
+
+  componentDidUpdate() {
+    // Used for fetching new data from servers
+    console.log('[App.js] componentDidUpdate');
   }
 
   switchNameHandler = (newName) => {
