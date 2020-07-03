@@ -4,6 +4,16 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    // This is required so that the constructors of the class we are extending
+    // is executed before. This ensures all the initilizations are done.
+    // Also important to access state
+    console.log('App.js] constructor');
+    // You can set state here using: this.state = ...
+    // After the constructor getDerivedStateFromProps runs
+  }
+
   state = {
     persons: [
       { id: 'sdfsd', name: 'Max', age: 28 },
@@ -13,6 +23,23 @@ class App extends Component {
     otherState: 'some other value',
     showPersons: false
   };
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props);
+    return state;
+    // render method runs after this
+  }
+
+  componentWillMount() {
+    // This throws an error as it's been removed
+    // This was used to set state correctly, but it can also be don in
+    // getDerivedStateFromProps or from the constructor
+    console.log('[App.js] componentWillMount');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
 
   switchNameHandler = (newName) => {
     this.setState({
@@ -54,6 +81,8 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render');
+    // Then componentDidMount() will run
     let persons = null;
 
     if(this.state.showPersons) {
@@ -62,7 +91,6 @@ class App extends Component {
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler} />;
     }
-
 
     return (
       <div className={classes.App}>
